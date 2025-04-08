@@ -21,12 +21,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - run: npm install
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
         cache-dependency-path: spartatestapp/app/package.json
-    - run: npm install
+        
     - run: npm run build --if-present
     - run: npm test
