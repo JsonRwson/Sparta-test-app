@@ -28,7 +28,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-        cache-dependency-path: spartatestapp/app/package.json
         
     - run: npm run build --if-present
     - run: npm test
